@@ -1,4 +1,3 @@
-/*
 .level1{
 
 background-color:aqua;
@@ -36,7 +35,6 @@ background-color:aqua;
     border-width: 1px;
     border-bottom-color: black;
 }
-*/
 
 .header, .footer{
     height: 70px;
@@ -264,6 +262,16 @@ input, .floating-placeholder{
     margin-bottom: 0;
 }
 
+.headingFix{
+  background-color: rgba(0,0,0,0.4);  
+}
+
+.customerTableDeleteBtn
+{
+        width: 70%;
+    float: right;
+}
+
 .customerUList{
     background-color: rgba(0,0,0,0.2);
          padding: 0px;
@@ -280,9 +288,7 @@ input, .floating-placeholder{
     
 }
 
-
-
-.customerListItemText{
+.customerListItemText, .detailsCustomerTable td{
     height:inherit;
       color: white;
       font-family: 'Carrois Gothic SC', sans-serif;
@@ -296,4 +302,10 @@ input, .floating-placeholder{
         height: 40px;
     float: right;
 }
+
+.customerTable, .customerContactTable{
+    height: inherit;
+    background-color: rgba(0,0,0,0.3);
+}
+
 

@@ -132,63 +132,132 @@
                             </div>
                             </div>
                 </form>
-                   
-                   
-                   
+        
                     <div class="level1 bottomSpacerAddCustomer col-md-12 col-sm-12" > </div>
             </div>
     
-    <div id="CustomerList">
+    <div id="CustomerList" hidden >
     
        <div class="level1 topSpacerAddCustomer col-md-12 col-sm-12">
-                        <div class="level2 col-md-4 hidden-sm topSpacerItems"></div>
-                        <div class="level2 col-md-4 col-sm-12 topSpacerItems">
-                            <div class="level2 col-md-4 hidden-sm topSpacerItems"><img src="images/customer-Add-Top.png" class="CustomerAddSpacerIcon"></div>
-                            <div class="level2 col-md-8 topSpacerItems CustomerAddTitle">Select Customer</div>
-                         </div>
-                         <div class="level2 col-md-4 hidden-sm topSpacerItems"></div>
+            <div class="level2 col-md-4 hidden-sm topSpacerItems"></div>
+            <div class="level2 col-md-4 col-sm-12 topSpacerItems">
+                <div class="level2 col-md-4 hidden-sm topSpacerItems"><img src="images/customer-Add-Top.png" class="CustomerAddSpacerIcon"></div>
+                <div class="level2 col-md-8 topSpacerItems CustomerAddTitle">Select Customer</div>
+             </div>
+             <div class="level2 col-md-4 hidden-sm topSpacerItems"></div>
 
        </div>
         
         
         <div class="level1 middleAreaSelectCustomer col-md-12 col-sm-12">
     
-    
-<!--
-              <div class="panel-body">
-                <ul class="list-unstyled" data-bind="foreach: customers">
-                    <li>
-                        <strong><span data-bind="text: CustomerName"></span></strong>: <span data-bind="text: Description"></span>
-                        <small><a href="#" data-bind="click: $parent.getMainCustomer">Details</a></small>
-                    </li>
-                </ul>
-            </div>
--->
-        <div class="col-md-12">
-            <div class="col-md-2"></div>
-            <div class="col-md-8 clientTable">
-            <h2 class="level2 clientTableHeading">List of all customers</h2>
-        <ul class="level2 customerUList " data-bind="foreach: customers">
-            <li class="level3 list-unstyled customerListItem"><div class="col-md-12 ">
-                <div class="col-md-10 level4">
-                <span class="customerListItemText" data-bind="text: CustomerName">this is my december</span>&emsp;&emsp;<span class="customerListItemText" data-bind="text: Description">this is my december</span>
+            <div class="col-md-12">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 clientTable">
+                <h2 class="level2 clientTableHeading">List of all customers</h2>
+                    <ul class="level2 customerUList " data-bind="foreach: customers">
+                        <li class="level3 list-unstyled customerListItem"><div class="col-md-12 ">
+                            <div class="col-md-10 level4">
+                            <span class="customerListItemText" data-bind="text: CustomerName">this is my december</span>&emsp;&emsp;<span class="customerListItemText" data-bind="text: Description">this is my december</span>
+                            </div>
+                                    <div class="level4 col-md-2"><img data-bind="click: $parent.getMainCustomer" src="images/select.png" class="selectCustomerImg"></div>      
+                            </div></li>
+
+                    </ul>
                 </div>
-                        <div class="level4 col-md-2"><img data-bind="click: $parent.getMainCustomer" src="images/select.png" class="selectCustomerImg"></div>      
-                </div></li>
-          
-        </ul>
-        </div>
-            <div class="col-md-2"></div>
+                <div class="col-md-2"></div>
             </div>
-    </div>
+       </div>
     
         
         
         <div class="level1 bottomSpacerAddCustomer col-md-12 col-sm-12" > </div>
     
     </div>
+<!--
     
+         <table class="table"> 
+                <tr><td id="SelectedCustomerID" data-bind="text: detail().Id" hidden></td><td>Customer Name</td><td data-bind="text: detail().CustomerName"></td></tr>
+                <tr><td>Description</td><td data-bind="text: detail().Description"></td></tr>
+                <tr><td>Address</td><td data-bind="text: detail().Address"></td></tr>
+                <tr><td>Lat</td><td data-bind="text: detail().Lat"></td></tr>
+                <tr><td>Long</td><td data-bind="text: detail().Long"></td></tr>
+                <tr><td>Contact Person</td><td data-bind="text: detail().ContactPersonName"></td></tr>
+                <tr><td>Number</td><td data-bind="text: detail().ContactPersonNumber"></td></tr>
+           
+                  <tr data-bind="foreach: contacts">
+                    <td id="contactDetailMainCustomerID" data-bind="text: Main_CustomerID"></td>
+                    <td id="contactDetailID" data-bind="text: Id"></td><td><input data-bind=" click: $parent.deleteContact" type="button">delete</input></td>
+                    <td>
+                        <strong><span data-bind="text: SubCustomerName"></span></strong>: <span data-bind="    text: SubCustomerEmail"></span>
+                        
+                    </td>
+                </tr>
+            </table>
+-->
     
+    <div id="detailsPanel">
+        
+             <div class="level1 topSpacerAddCustomer col-md-12 col-sm-12">
+                <div class="level2 col-md-4 hidden-sm topSpacerItems"></div>
+                <div class="level2 col-md-4 col-sm-12 topSpacerItems">
+                    
+                    <div class="level2 col-md-12 topSpacerItems CustomerAddTitle">Customer Details</div>
+                 </div>
+                 <div class="level2 col-md-4 hidden-sm topSpacerItems"></div>
+
+            </div>
+        
+               <div class="level1 middleAreaSelectCustomer col-md-12 col-sm-12">
+                   <!-- ko if:detail() -->  
+                   <div class="level2  col-md-8">
+                  
+                       <table class="table customerTable detailsCustomerTable"> 
+                           <tr><td class="clientTableHeading">customers</td><td class="headingFix"></td></tr>
+                            <tr><td id="SelectedCustomerID" data-bind="text: detail().Id" hidden></td><td>Customer Name</td><td data-bind="text: detail().CustomerName"></td></tr>
+                            <tr><td>Description</td><td data-bind="text: detail().Description"></td></tr>
+                            <tr><td>Address</td><td data-bind="text: detail().Address"></td></tr>
+                            <tr><td>Lat</td><td data-bind="text: detail().Lat"></td></tr>
+                            <tr><td>Long</td><td data-bind="text: detail().Long"></td></tr>
+                           <tr><td></td><td><input class="customerTableDeleteBtn" data-bind=" click: $parent.deleteCustomer" type="button"></td></tr>
+                       </table>
+                
+                   </div>
+                   
+                   <div class="level2 col-md-4">
+                       <table class="table customerTable detailsCustomerTable">
+                           <tr><td class="clientTableHeading">contacts</td><td class="headingFix"></td></tr>
+                             <tr data-bind="foreach: contacts">
+                                <td id="contactDetailMainCustomerID" data-bind="text: Main_CustomerID" hidden></td>
+                                <td id="contactDetailID" data-bind="text: Id" hidden></td>
+                               
+                                <td>
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <div class="col-md-10"><span data-bind="text: SubCustomerName"></span></div>
+                                             <div class="col-md-2">
+<!--
+                                                <div class="col-md-6"><input data-bind=" click: $parent.deleteContact" type="button"></div>
+                                                 <div class="col-md-6"><input data-bind=" click: $parent.deleteContact" type="button"></div>
+-->
+                                            </div>
+                                         </div>
+                                        <div class="col-md-12"><span data-bind="    text: SubCustomerEmail"></span></div>
+                                        <div class="col-md-12"></div>
+                                    
+                                    </div>
+                                    
+                                    
+                                </td>
+                            </tr>
+                       </table>
+                   </div>
+ <!-- /ko -->
+             </div>
+        
+        <div class="level1 bottomSpacerAddCustomer col-md-12 col-sm-12" > </div>
+    
+    </div>
     
      <footer class="footer">
     
