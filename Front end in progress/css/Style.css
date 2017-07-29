@@ -1,0 +1,188 @@
+.level1{
+
+background-color:aqua;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-color: black;
+}
+
+.level1B{
+    
+    background-color:beige;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-color: black;
+}
+
+.level2{
+    background-color: pink;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-color: black;
+}
+
+.level3{
+    background-color: darkgoldenrod;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-color: black;
+}
+
+.level4{
+
+     background-color: darkgreen;
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-color: black;
+}
+
+.header, .footer{
+    height: 70px;
+}
+.headerItems , .footerItems{
+    height: inherit;
+}
+
+.headerItems img{
+    max-width: 40px;
+    margin: auto;
+    display: block;
+    position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+
+.headerLine {
+  height: 70%;
+      border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: white;
+}
+
+.footerLine {
+  height: 70%;
+      border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: white;
+}
+
+.mainButtons{
+    height:100%;
+}
+
+.topSpacer, .bottomSpacer {
+    height:50px;
+
+}
+
+.topInnerSpacer, .bottomInnerSpacer {
+    height:20%;
+
+}
+
+.middleArea{
+    height:480px;
+    
+}
+
+.middleAreaAddCustomer{
+    height:480px;
+    padding: 60px 180px 0px 180px !important;
+    
+}
+
+
+.middleInnerArea{
+    height:60%;
+}
+
+
+.backgroundPic{
+    background-image: url(../images/CApp_bg.jpg);
+    background-repeat: no-repeat;
+}
+
+.mainPicsHolder{
+    
+    display: block;
+      position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+    max-width: 200px;
+    padding: 40px;
+    background-color: black;
+    background: rgba(0,0,0,0.2) 
+}
+
+
+.mainPicFloatRight{
+    float: right !important;
+    
+}
+
+.mainPicFloatLeft{
+    float: left !important;
+  
+}
+
+input, .floating-placeholder{
+  font-family: 'Carrois Gothic SC', sans-serif;
+  font-size:10pt;
+  line-height:2.6em;
+  height:2.6em;
+  margin:0;
+  margin-bottom: 20px;
+  width:100%;
+  font-weight: 100;
+}
+.floating-placeholder input:focus+label{
+  color:#16abf0;
+}
+.floating-placeholder input[value]+label{
+  color:red;
+}
+.floating-placeholder{
+  position:relative;
+}
+
+.floating-placeholder input{
+  font-size:12pt;
+   outline:none;
+/*  position:absolute;*/
+  top:0;
+  left:0;
+  display:block;
+  background:transparent;
+  z-index:2;
+  text-indent:20px;
+    -webkit-appearance: none;
+     border: 0px solid #f00 !important;
+    border-bottom:2px solid white !important;
+}
+
+
+.floating-placeholder label{
+  display:block;
+  position:absolute;
+  color: white;
+  top:5px;
+  left:20px;
+  font-size:12pt;
+  z-index:1;
+  @include transform-origin(0,0.0em);
+  @include transition(transform 160ms, color 200ms);
+  @include transform(scale(1,1) rotateY(0));
+  
+}
+.floating-placeholder-float label{
+  @include transform(scale(0.55,0.55) rotateY(0));
+}
+.floating-placeholder-float input{
+  line-height:3.4em;
+}
