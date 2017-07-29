@@ -1,3 +1,4 @@
+/*
 .level1{
 
 background-color:aqua;
@@ -35,11 +36,12 @@ background-color:aqua;
     border-width: 1px;
     border-bottom-color: black;
 }
+*/
 
 .header, .footer{
     height: 70px;
 }
-.headerItems , .footerItems{
+.headerItems , .footerItems, .topSpacerItems{
     height: inherit;
 }
 
@@ -89,12 +91,19 @@ background-color:aqua;
     
 }
 
-.middleAreaAddCustomer{
+
+@media(min-width:800px){
+ .middleAreaAddCustomer{
     height:480px;
     padding: 60px 180px 0px 180px !important;
-    
+}
 }
 
+ .middleAreaAddCustomer{
+    height:480px;
+    
+    
+}
 
 .middleInnerArea{
     height:60%;
@@ -164,6 +173,7 @@ input, .floating-placeholder{
     -webkit-appearance: none;
      border: 0px solid #f00 !important;
     border-bottom:2px solid white !important;
+    color: white;
 }
 
 
@@ -186,3 +196,104 @@ input, .floating-placeholder{
 .floating-placeholder-float input{
   line-height:3.4em;
 }
+
+.formIcons{
+    height: inherit;
+    max-width: 30px;
+    float: right;
+}
+
+.submitButton{
+    
+    background-image: url(../images/form_icon_Save.png);
+    background-size: cover;
+    max-width: 50px;
+    width:50px;
+    border: none;
+    background-color: transparent;
+    height:50px;;
+}
+
+.topSpacerAddCustomer{
+    height:80px;
+
+}
+
+ .bottomSpacerAddCustomer {
+    height:20px;
+
+}
+
+.CustomerAddTitle
+{
+    top: 25%;
+    color: white;
+      font-family: 'Carrois Gothic SC', sans-serif;
+  font-size:20pt;
+ font-weight: 100;
+    border: none;
+}
+
+.CustomerAddSpacerIcon {
+	max-width: 60px;
+    float: right;!important
+}
+
+
+ .middleAreaSelectCustomer{
+    height:480px;
+}
+
+.clientTable{
+    
+    padding: 10px 200px 0px 200px;!important
+    background-color: rgba(0,0,0,0.3);!important
+    height:100%;
+}
+
+.clientTableHeading
+{
+    text-align: center;
+    background-color: rgba(0,0,0,0.4);
+    padding: 10px;
+    top: 25%;
+    color: white;
+      font-family: 'Carrois Gothic SC', sans-serif;
+  font-size:20pt;
+    padding-bottom: 25px;
+    margin-bottom: 0;
+}
+
+.customerUList{
+    background-color: rgba(0,0,0,0.2);
+         padding: 0px;
+
+    
+}
+.customerListItem
+{
+    height:40px;
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-width: 1px;
+    padding: 0px;
+    
+}
+
+
+
+.customerListItemText{
+    height:inherit;
+      color: white;
+      font-family: 'Carrois Gothic SC', sans-serif;
+  font-size:20pt;
+ font-weight: 100;
+    border: none;
+}
+
+.selectCustomerImg{
+    
+        height: 40px;
+    float: right;
+}
+
