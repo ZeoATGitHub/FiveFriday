@@ -1,0 +1,147 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
+
+<div class="page-header">
+    <h1>Customer App</h1>
+</div>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Customers</h2>
+            </div>
+            <div class="panel-body">
+                <ul class="list-unstyled" data-bind="foreach: customers">
+                    <li>
+                        <strong><span data-bind="text: CustomerName"></span></strong>: <span data-bind="text: Description"></span>
+                        <small><a href="#" data-bind="click: $parent.getMainCustomer">Details</a></small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+    <!-- ko if:detail() -->
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Detail</h2>
+            </div>
+            <table class="table"> 
+                <tr><td id="SelectedCustomerID" data-bind="text: detail().Id" hidden></td><td>Customer Name</td><td data-bind="text: detail().CustomerName"></td></tr>
+                <tr><td>Description</td><td data-bind="text: detail().Description"></td></tr>
+                <tr><td>Address</td><td data-bind="text: detail().Address"></td></tr>
+                <tr><td>Lat</td><td data-bind="text: detail().Lat"></td></tr>
+                <tr><td>Long</td><td data-bind="text: detail().Long"></td></tr>
+                <tr><td>Contact Person</td><td data-bind="text: detail().ContactPersonName"></td></tr>
+                <tr><td>Number</td><td data-bind="text: detail().ContactPersonNumber"></td></tr>
+           
+                  <tr data-bind="foreach: contacts">
+                    <td id="contactDetailMainCustomerID" data-bind="text: Main_CustomerID"></td>
+                    <td id="contactDetailID" data-bind="text: Id"></td><td><input data-bind=" click: $parent.deleteContact" type="button">delete</input></td>
+                    <td>
+                        <strong><span data-bind="text: SubCustomerName"></span></strong>: <span data-bind="    text: SubCustomerEmail"></span>
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- /ko -->
+
+@*adding contact*@ 
+
+  <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Add Contact</h2>
+            </div>
+
+            <div class="panel-body">
+                <form class="form-horizontal" data-bind="submit: addContact">
+                   
+
+                    <div class="form-group" data-bind="with: newContact">
+                        <label for="contactname" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="contactname" data-bind="value: SubCustomerName" />
+                        </div>
+
+                        <label for="inputEmail" class="col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail" data-bind="value: SubCustomerEmail" />
+                        </div>
+
+                        <label for="inputContactNumber" class="col-sm-2 control-label">Address</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputContactNumber" data-bind="value: SubCustomerContactNumber" />
+                        </div>
+
+                   
+            
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Add Customer</h2>
+            </div>
+
+            <div class="panel-body">
+                <form class="form-horizontal" data-bind="submit: addMainCustomer">
+                   
+
+                    <div class="form-group" data-bind="with: newMainCustomer">
+                        <label for="customerName" class="col-sm-2 control-label">Customer Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="customerName" data-bind="value:CustomerName" />
+                        </div>
+
+                        <label for="inputDescription" class="col-sm-2 control-label">Description</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputDescription" data-bind="value:Description" />
+                        </div>
+
+                        <label for="inputAddress" class="col-sm-2 control-label">Address</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputAddress" data-bind="value:Address" />
+                        </div>
+
+                        <label for="inputLat" class="col-sm-2 control-label">Lat</label>
+                        <div class="col-sm-10">
+                            <input type="text"  class="form-control" id="inputLat" data-bind="value:Lat" />
+                        </div>
+
+                        <label for="inputLong" class="col-sm-2 control-label">Long</label>
+                        <div class="col-sm-10">
+                            <input type="text"  class="form-control" id="inputLong" data-bind="value:Long" />
+                        </div>
+
+                        <label for="inputContactPersonName" class="col-sm-2 control-label">Contact Person Name</label>
+                        <div class="col-sm-10">
+                            <input type="text"  class="form-control" id="inputContactPersonName" data-bind="value:ContactPersonName" />
+                        </div>
+
+                        <label for="inputPrice" class="col-sm-2 control-label">Contact Person Number</label>
+                        <div class="col-sm-10">
+                            <input type="text"  class="form-control" id="inputContactPersonNumber" data-bind="value:ContactPersonNumber" />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
