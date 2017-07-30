@@ -1,17 +1,329 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿
+.header, .footer {
+    height: 70px;
+    
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.headerItems, .footerItems, .topSpacerItems {
+    height: inherit;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+    .headerItems img {
+        max-width: 40px;
+        margin: auto;
+        display: block;
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+
+
+.headerLine {
+    height: 70%;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: white;
+}
+
+.footerLine {
+    height: 70%;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: white;
+}
+
+.mainButtons {
+    height: 100%;
+}
+
+.topSpacer, .bottomSpacer {
+    height: 50px;
+}
+
+.topInnerSpacer, .bottomInnerSpacer {
+    height: 20%;
+}
+
+.middleArea {
+    height: 480px;
+}
+
+
+@media(min-width:800px) {
+    .middleAreaAddCustomer {
+        height: 480px;
+        padding: 60px 180px 0px 180px !important;
+    }
+}
+
+.middleAreaAddCustomer {
+    height: 480px;
+}
+
+.middleInnerArea {
+    height: 60%;
+}
+
+
+.backgroundPic {
+    background-image: url(../images/CApp_bg.jpg);
+    background-repeat: no-repeat;
+}
+
+.mainPicsHolder {
+    display: block;
+    position: relative;
+    top:25%;
+  
+    
+    max-width: 200px;
+    padding: 40px;
+    background-color: black;
+    background: rgba(0,0,0,0.2)
+}
+
+
+.mainPicFloatRight {
+    float: right !important;
+}
+
+.mainPicFloatLeft {
+    float: left !important;
+}
+
+input, .floating-placeholder {
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 10pt;
+    line-height: 2.6em;
+    height: 2.6em;
+    margin: 0;
+    margin-bottom: 20px;
+    width: 100%;
+    font-weight: 100;
+}
+
+    .floating-placeholder input:focus + label {
+        color: #16abf0;
+    }
+
+    .floating-placeholder input[value] + label {
+        color: red;
+    }
+
+.floating-placeholder {
+    position: relative;
+}
+
+    .floating-placeholder input {
+        font-size: 12pt;
+        outline: none;
+        /*  position:absolute;*/
+        top: 0;
+        left: 0;
+        display: block;
+        background: transparent;
+        z-index: 2;
+        text-indent: 20px;
+        -webkit-appearance: none;
+        border: 0px solid #f00 !important;
+        border-bottom: 2px solid white !important;
+        color: white;
+    }
+
+
+    .floating-placeholder label {
+        display: block;
+        position: absolute;
+        color: white;
+        top: 5px;
+        left: 20px;
+        font-size: 12pt;
+        z-index: 1;
+       
+    }
+
+
+
+.floating-placeholder-float input {
+    line-height: 3.4em;
+}
+
+.formIcons {
+    height: inherit;
+    max-width: 30px;
+    float: right;
+}
+
+.submitButton {
+    background-image: url(../images/form_icon_Save.png);
+    background-size: cover;
+    max-width: 50px;
+    width: 50px;
+    border: none;
+    background-color: transparent;
+    height: 50px;
+    z-index: 1;
+}
+
+.topSpacerAddCustomer {
+    height: 80px;
+}
+
+.bottomSpacerAddCustomer {
+    height: 20px;
+}
+
+.CustomerAddTitle {
+    top: 25%;
+    color: white;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 20pt;
+    font-weight: 100;
+    border: none;
+}
+
+.CustomerAddSpacerIcon {
+    max-width: 60px;
+    float: right;
+    !important
+}
+
+
+.middleAreaSelectCustomer {
+    height: 480px;
+}
+
+.clientTable {
+    !important background-color: rgba(0,0,0,0.3);
+    !important height:100%;
+}
+
+.clientTableHeading {
+    text-align: center;
+    background-color: rgba(0,0,0,0.4);
+    padding: 10px;
+    top: 25%;
+    color: white;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 20pt;
+    margin-bottom: 0;
+    height: 60px;
+}
+
+.headingFix {
+    background-color: rgba(0,0,0,0.4);
+}
+
+.customerTableDeleteBtn {
+    width: 70%;
+    float: right;
+}
+
+.customerUList {
+    background-color: rgba(0,0,0,0.2);
+    padding: 0px;
+}
+
+.customerListItem {
+    height: 40px;
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-width: 1px;
+    padding: 0px;
+    overflow:hidden;
+}
+
+.customerListItem:hover {
+    height: 40px;
+    border-bottom-color: white;
+    border-bottom-style: solid;
+    border-width: 1px;
+    padding: 0px;
+    overflow: hidden;
+    background-color: rgba(255,255,255, 0.8);
+    color:transparent;
+}
+
+.customerListItemText, .detailsCustomerTable td {
+    height: inherit;
+    color: white;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 20pt;
+    font-weight: 100;
+    border: none;
+}
+
+.mainTitles {
+   
+    color: white;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 30pt;
+    font-weight: 100;
+    border: none;
+    text-align:center;
+    
+}
+
+.selectCustomerImg {
+    height: 40px;
+    float: right;
+}
+
+.customerTable, .customerContactTable {
+    height: inherit;
+    background-color: rgba(0,0,0,0.3);
+}
+
+contactDetailRow_tr {
+
+    overflow:hidden;
+}
+
+.contactDetailsRow {
+    height: inherit;
+    color: white;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 10pt;
+    font-weight: 100;
+    border: none;
+}
+
+.contactDetailsHeaderButton{
+
+    max-width: 50px;
+}
+
+
+.modal-content {
+    display: block;
+    padding-right: 0px;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    color: white;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 10pt;
+    font-weight: 100;
+    border: none;
+}
+
+#addContactPanel {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.contactAddPanelBtn {
+    background-image: url(../images/tick.png);
+    background-size: cover;
+    max-width: 20px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    z-index: 1;
+}
+
+
+#addContactPanel {
+    padding:0;
 }

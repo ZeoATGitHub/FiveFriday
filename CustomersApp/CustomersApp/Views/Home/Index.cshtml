@@ -1,147 +1,285 @@
 ﻿@section scripts {
     @Scripts.Render("~/bundles/app")
 }
+<script src="Scripts/velocity.min.js"></script>
+<script src="Scripts/velocity.ui.js"></script>
 
-<div class="page-header">
-    <h1>Customer App</h1>
+<div id="MainMenuPanel">
+    <div class=" topSpacer col-md-12 col-sm-12 col-xs-12">
+      
+    </div>
+
+    <div class="B col-md-12 col-sm-12 col-xs-12 middleArea">
+        <div class=" col-md-12 hidden-sm hidden-xs topInnerSpacer mainTitles"><span id="addcustext"class="col-md-12" hidden>Add a customer</span  ><span class="col-md-12" id="editcustext" hidden>Edit a customer</span></div>
+        <div class=" col-md-12 col-sm-12 col-xs-12 middleInnerArea">
+            <div class="mainButtons col-md-1 hidden-sm hidden-xs "></div>
+            
+            <div class="mainButtons col-md-5 col-sm-6 col-xs-6 ">
+                <div  id="AddCustomerBtn" class=" col-md-12 col-sm-12 col-xs-12 mainPicsHolder mainPicFloatRight">
+                    <img  class="col-md-12 col-sm-12 col-xs-12" src="images/customer.png">
+                </div>
+            </div>
+            <div class="mainButtons col-md-5 col-sm-6 col-xs-6  ">
+                <div id="EditCustomersBtn" class=" col-md-12 col-sm-12 col-xs-12 mainPicsHolder mainPicFloatLeft">
+                    <img class="col-md-12 col-sm-12 col-xs-12 mainPics " src="images/edit.png" >
+                </div>
+            </div>
+            <div class="mainButtons col-md-1 hidden-sm hidden-xs "></div>
+        </div>
+        <div class=" col-md-12 col-sm-12 col-xs-12 topInnerSpacer"></div>
+    </div>
+
+    <div class=" bottomSpacer col-md-12 col-sm-12 col-xs-12">
+
+    </div>
 </div>
 
-<div class="row">
+<div id="AddCustomerPanel" hidden>
 
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Customers</h2>
+    <div class=" topSpacerAddCustomer col-md-12 col-sm-12 col-xs-12">
+        <div class=" col-md-4 hidden-sm col-xs-12 topSpacerItems"></div>
+        <div class=" col-md-4 col-sm-12 col-xs-12 topSpacerItems">
+            <div class=" col-md-4 hidden-sm hidden-xs topSpacerItems"><img src="images/customer-Add-Top.png" class="CustomerAddSpacerIcon"></div>
+            <div class=" col-md-8 col-sm-8 hidden-xs topSpacerItems CustomerAddTitle">Add New Customer</div>
+        </div>
+        <div class=" col-md-4 hidden-sm hidden-xs topSpacerItems"></div>
+
+    </div>
+
+    <form class="B col-md-12 col-sm-12 middleAreaAddCustomer" data-bind="submit: addMainCustomer">
+
+        <div class="form-group col-md-12" data-bind="with: newMainCustomer">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="formIcons col-md-1 col-sm-1 hidden-xs"><img class="formIcons" src="images/form_icon_Name.png"></div>
+                <div class="col-md-11 col-sm-11 floating-placeholder">
+                    <input  type="text" id="customerName" data-bind="value:CustomerName" />
+                    <label for="customerName">Customer Name</label>
+                </div>
             </div>
-            <div class="panel-body">
-                <ul class="list-unstyled" data-bind="foreach: customers">
-                    <li>
-                        <strong><span data-bind="text: CustomerName"></span></strong>: <span data-bind="text: Description"></span>
-                        <small><a href="#" data-bind="click: $parent.getMainCustomer">Details</a></small>
-                    </li>
-                </ul>
+
+            <div class="col-md-12 col-sm-12">
+                <div class="formIcons col-md-1 col-sm-1 hidden-xs"><img class="formIcons" src="images/form_icon_Description.png"></div>
+                <div class="col-md-11 col-sm-11 floating-placeholder">
+                    <input type="text" id="inputDescription" data-bind="value:Description" />
+                    <label for="inputDescription" class="">Description</label>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12">
+                <div class="formIcons col-md-1 col-sm-1 hidden-xs"><img class="formIcons" src="images/form_icon_Address.png"></div>
+                <div class="col-md-11 col-sm-11 floating-placeholder">
+                    <input type="text" id="inputAddress" data-bind="value:Address" />
+                    <label for="inputAddress" class="">Address</label>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12">
+                <div class="formIcons col-md-1 col-sm-1 hidden-xs"><img class="formIcons" src="images/form_icon_Latitude.png"></div>
+                <div class="col-md-11 col-sm-11 floating-placeholder">
+                    <input type="text" id="inputLat" data-bind="value:Lat" />
+                    <label for="inputLat" class="">Latitude</label>
+
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12">
+                <div class="formIcons col-md-1 col-sm-1 hidden-xs"><img class="formIcons" src="images/form_icon_Longitude.png"></div>
+                <div class="col-md-11 col-sm-11 floating-placeholder">
+                    <input type="text" id="inputLong" data-bind="value:Long" />
+                    <label for="inputLong" class="">Longitude</label>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-12 col-sm-12">
+            <div class="col-md-11 hidden-sm hidden-xs"></div>
+            <div class="col-md-1 col-sm-12">
+                <button type="submit" class=" col-md-12 submitButton"></button>
             </div>
         </div>
-        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </form>
+
+    <div class=" bottomSpacerAddCustomer col-md-12 col-sm-12"> </div>
+</div>
+
+<div id="CustomerList" hidden>
+
+    <div class=" topSpacerAddCustomer col-md-12 col-sm-12 col-xs-12">
+        <div class=" col-md-4 hidden-sm col-xs-12 topSpacerItems"></div>
+        <div class=" col-md-4 col-sm-12 col-xs-12 topSpacerItems">
+            <div class=" col-md-4 hidden-sm hidden-xs topSpacerItems"><img src="images/customer-Add-Top.png" class="CustomerAddSpacerIcon"></div>
+            <div class=" col-md-8  hidden-xs topSpacerItems CustomerAddTitle">Select Customer</div>
+        </div>
+        <div class=" col-md-4 hidden-sm hidden-xs topSpacerItems"></div>
+
     </div>
-    <!-- ko if:detail() -->
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Detail</h2>
+
+
+    <div class=" middleAreaSelectCustomer col-md-12 col-sm-12 col-xs-12">
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-2 col-sm-12 col-xs-12"></div>
+            <div class="col-md-8 col-sm-8 col-xs-12 clientTable">
+                <h2 class=" clientTableHeading">List of all customers</h2>
+                <ul class=" customerUList " data-bind="foreach: customers">
+                    <li class=" list-unstyled customerListItem" data-bind="click: $parent.getMainCustomer">
+                        <div class="col-md-12 ">
+                            <div class="col-md-10 "">
+                                <span class="customerListItemText" data-bind="text: CustomerName"></span>&emsp;&emsp;<span class="customerListItemText" data-bind="text: Description">this is my december</span>
+                            </div>
+                            <div class="" col-md-2"><img  src="images/select.png" class="selectCustomerImg"></div>
+                        </div>
+                    </li>
+
+                </ul>
             </div>
-            <table class="table"> 
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+
+
+
+    <div class=" bottomSpacerAddCustomer col-md-12 col-sm-12"> </div>
+
+</div>
+
+
+<div id="detailsPanel" hidden>
+
+    <div class=" topSpacerAddCustomer col-md-12 col-sm-12">
+        <div class=" col-md-4 hidden-sm topSpacerItems"></div>
+        <div class=" col-md-4 col-sm-12 topSpacerItems">
+
+            <div class=" col-md-12 hidden-xs topSpacerItems CustomerAddTitle">Customer Details</div>
+        </div>
+        <div class=" col-md-4 hidden-sm topSpacerItems"></div>
+
+    </div>
+
+    <div class=" middleAreaSelectCustomer col-md-12 col-sm-12">
+        <!-- ko if:detail() -->
+        <div class="  col-md-8">
+
+            <table class="table customerTable detailsCustomerTable">
+                <tr><td class="clientTableHeading">customer</td><td class="headingFix"></td></tr>
                 <tr><td id="SelectedCustomerID" data-bind="text: detail().Id" hidden></td><td>Customer Name</td><td data-bind="text: detail().CustomerName"></td></tr>
                 <tr><td>Description</td><td data-bind="text: detail().Description"></td></tr>
                 <tr><td>Address</td><td data-bind="text: detail().Address"></td></tr>
                 <tr><td>Lat</td><td data-bind="text: detail().Lat"></td></tr>
                 <tr><td>Long</td><td data-bind="text: detail().Long"></td></tr>
-                <tr><td>Contact Person</td><td data-bind="text: detail().ContactPersonName"></td></tr>
-                <tr><td>Number</td><td data-bind="text: detail().ContactPersonNumber"></td></tr>
-           
-                  <tr data-bind="foreach: contacts">
-                    <td id="contactDetailMainCustomerID" data-bind="text: Main_CustomerID"></td>
-                    <td id="contactDetailID" data-bind="text: Id"></td><td><input data-bind=" click: $parent.deleteContact" type="button">delete</input></td>
-                    <td>
-                        <strong><span data-bind="text: SubCustomerName"></span></strong>: <span data-bind="    text: SubCustomerEmail"></span>
-                        
-                    </td>
-                </tr>
+           @*     <tr><td></td><td><input class="customerTableDeleteBtn" data-bind=" click: $parent.deleteCustomer" type="button"></td></tr>*@
             </table>
+
         </div>
-    </div>
-    <!-- /ko -->
+        
+        <div class=" col-md-4" id="addContactPanel" hidden>
 
-@*adding contact*@ 
+            <div class="contactPanel" style="z-index:1">
+                <div class="clientTableHeading col-md-12">
+                    <span>Contacts</span>
 
-  <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Add Contact</h2>
-            </div>
-
-            <div class="panel-body">
+                </div>
                 <form class="form-horizontal" data-bind="submit: addContact">
-                   
-
                     <div class="form-group" data-bind="with: newContact">
-                        <label for="contactname" class="col-sm-2 control-label">Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="contactname" data-bind="value: SubCustomerName" />
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="formIcons col-md-1 col-sm-1 hidden-xs"><img class="formIcons" src="images/form_icon_Name.png"></div>
+                            <div class="col-md-11 col-sm-11 floating-placeholder">
+
+                                <input type="text" id="contactname" data-bind="value:SubCustomerName" />
+                                <label for="contactname">Contact Name</label>
+                            </div>
                         </div>
 
-                        <label for="inputEmail" class="col-sm-2 control-label">Description</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputEmail" data-bind="value: SubCustomerEmail" />
+                        <div class="col-md-12 col-sm-12">
+                            <div class="formIcons col-md-1 col-sm-1 hidden-xs"><img class="formIcons" src="images/form_icon_Name.png"></div>
+                            <div class="col-md-11 col-sm-11 floating-placeholder">
+
+                                <input type="text" id="inputEmail" data-bind="value:SubCustomerEmail" />
+                                <label for="inputEmail">Contact Email</label>
+                            </div>
                         </div>
 
-                        <label for="inputContactNumber" class="col-sm-2 control-label">Address</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputContactNumber" data-bind="value: SubCustomerContactNumber" />
+                        <div class="col-md-12 col-sm-12">
+                            <div class="formIcons col-md-1 col-sm-1 hidden-xs"><img class="formIcons" src="images/form_icon_Name.png"></div>
+                            <div id="zaz" class="col-md-11 col-sm-11 floating-placeholder addcontactinput">
+                                <input type="text" id="inputContactNumber" data-bind="value:SubCustomerContactNumber" />
+                                <label for="inputContactNumber">Contact Number</label>
+                            </div>
                         </div>
 
-                   
-            
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <div class="col-md-12">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-2" id="addContactSubBtn"><img style="max-width:20px;" src="images/cross.png"></div>
+                        <div class="col-md-2">
+                            <button id="submitContactBtn" type="submit" class="contactAddPanelBtn"></button>
+                        </div>
+
+                    </div>
                 </form>
             </div>
         </div>
-    </div>
+       
 
+            <div class=" col-md-4" id="viewContactsPanel" >
+                <div class="clientTableHeading col-md-12">
+                    <span class="col-md-10">Contacts</span>
+                    
+                        <img id="AddContactBtn"  class="contactDetailsHeaderButton col-md-2" src="images/add.png" />
+                    
+                </div>
+                <table class="table customerTable detailsCustomerTable" data-bind="foreach: contacts">
+                    <tr>
+                        <td id="contactDetailMainCustomerID" data-bind="text: Main_CustomerID" hidden></td>
+                        <td id="contactDetailID" data-bind="text: Id" hidden></td>
 
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">Add Customer</h2>
+                        <td>
+
+                            <div class="col-md-12">
+
+                                <div class="col-md-12 contactDetailsRow"><span data-bind="text: SubCustomerName"></span></div>
+                                <div class="col-md-12 contactDetailsRow"><span data-bind="text: SubCustomerEmail"></span></div>
+                                <div class="col-md-12 contactDetailsRow"><span data-bind="text: SubCustomerContactNumber"></span></div>
+                                <!--
+                                                                            <div class="col-md-6"><input data-bind=" click: $parent.deleteContact" type="button"></div>
+                                         
+                            -->
+
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
             </div>
+            <!-- /ko -->
+        </div>
 
-            <div class="panel-body">
-                <form class="form-horizontal" data-bind="submit: addMainCustomer">
-                   
+    <div class=" bottomSpacerAddCustomer col-md-12 col-sm-12"> </div>
 
-                    <div class="form-group" data-bind="with: newMainCustomer">
-                        <label for="customerName" class="col-sm-2 control-label">Customer Name</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="customerName" data-bind="value:CustomerName" />
-                        </div>
+</div>
 
-                        <label for="inputDescription" class="col-sm-2 control-label">Description</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputDescription" data-bind="value:Description" />
-                        </div>
 
-                        <label for="inputAddress" class="col-sm-2 control-label">Address</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputAddress" data-bind="value:Address" />
-                        </div>
 
-                        <label for="inputLat" class="col-sm-2 control-label">Lat</label>
-                        <div class="col-sm-10">
-                            <input type="text"  class="form-control" id="inputLat" data-bind="value:Lat" />
-                        </div>
-
-                        <label for="inputLong" class="col-sm-2 control-label">Long</label>
-                        <div class="col-sm-10">
-                            <input type="text"  class="form-control" id="inputLong" data-bind="value:Long" />
-                        </div>
-
-                        <label for="inputContactPersonName" class="col-sm-2 control-label">Contact Person Name</label>
-                        <div class="col-sm-10">
-                            <input type="text"  class="form-control" id="inputContactPersonName" data-bind="value:ContactPersonName" />
-                        </div>
-
-                        <label for="inputPrice" class="col-sm-2 control-label">Contact Person Number</label>
-                        <div class="col-sm-10">
-                            <input type="text"  class="form-control" id="inputContactPersonNumber" data-bind="value:ContactPersonNumber" />
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"></h4>
+            </div>
+            <div class="modal-body">
+                The data has been saved
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                
             </div>
         </div>
     </div>
-
-
-
 </div>
